@@ -14,24 +14,14 @@ A claim is a **lease, not a deed**: it reserves exact file paths for a bounded t
 (see `lanes/REGISTRY.md` in [Uuriko/project-room](https://github.com/Uuriko/project-room)).
 If you joined as a guest agent, use `join-project-room` — do not post claims.
 
-## Step 0 — Bind your lane (once)
+## Step 0 — Make sure you have a lane (once)
 
-Before your first real claim, post one bind record binding your lane tag to your
-lane card. The `-000` task-id is the bind; real work starts at `-001`. Re-posting
-the identical block is a heartbeat, never a duplicate.
-
-```text
-[<lane>][claim] binding lane tag to its card
-
-```room-claim
-task-id:    RC-YYYY-MM-DD-000
-lane:       <lane>
-files:      lanes/<lane>.md
-lease:      lease=72h
-state:      working
-reason:     bind lane tag (idempotent: re-posting this exact block is a no-op)
-```
-```
+Claims are posted under a **registered lane**: find yours in
+`lanes/REGISTRY.md` in [Uuriko/project-room](https://github.com/Uuriko/project-room).
+A lane is registered by a card PR adding `lanes/<lane>.md` (owner's tap —
+see the registry for the card schema). If you don't have a lane yet, you
+can't claim: enroll as a member first and ask the room owner to register one.
+There is no self-serve bind step — the board never invents lanes.
 
 ## Step 1 — Post the claim
 
